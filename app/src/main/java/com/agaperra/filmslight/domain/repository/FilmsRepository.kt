@@ -1,35 +1,32 @@
 package com.agaperra.filmslight.domain.repository
 
-import com.agaperra.filmslight.domain.model.CastResponse
+import com.agaperra.filmslight.data.dto.credits.CastResponse
+import com.agaperra.filmslight.domain.model.Actor
+import com.agaperra.filmslight.domain.model.Movie
 import com.agaperra.filmslight.domain.model.MovieFull
-import com.agaperra.filmslight.domain.model.MovieResponse
 
 interface FilmsRepository {
 
     suspend fun getPopularMovies(
-        key: String,
         lang: String,
         page: Int
-    ) : MovieResponse
+    ) : List<Movie>
 
     suspend fun searchMovie(
-        key: String,
         lang: String,
         query: String,
         page: Int
-    ) : MovieResponse
+    ) : List<Movie>
 
     suspend fun getMovieDetails(
         id: Int,
-        key: String,
         lang: String,
     ) : MovieFull
 
     suspend fun showCredits(
         id: Int,
-        key: String,
         lang: String,
-    ) : CastResponse
+    ) : List<Actor>
 
 
 }

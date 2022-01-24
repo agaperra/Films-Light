@@ -3,16 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/main_fragment">
+    app:startDestination="@+id/fragment_movie">
 
     <fragment
-        android:id="@+id/main_fragment"
-        android:name="com.agaperra.filmslight.ui.fragments.MainFragment"
+        android:id="@+id/fragment_movie"
+        android:name="com.agaperra.filmslight.ui.fragments.MovieFragment"
         android:label="@string/title_movie"
         tools:layout="@layout/fragment_movie">
         <action
             android:id="@+id/openMovie"
             app:destination="@id/infoFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/fragment_exit" />
+        <action
+            android:id="@+id/openSearch"
+            app:destination="@id/searchFragment"
             app:enterAnim="@anim/slide_from_bottom"
             app:exitAnim="@anim/fragment_exit" />
     </fragment>
@@ -25,6 +30,19 @@
         <argument
             android:name="movieId"
             app:argType="integer" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.agaperra.filmslight.ui.fragments.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/openMovie"
+            app:destination="@id/infoFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/fragment_exit" />
 
     </fragment>
 

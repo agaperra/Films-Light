@@ -1,4 +1,6 @@
-package com.agaperra.filmslight.domain.model
+package com.agaperra.filmslight.data.dto.movies
+
+import com.agaperra.filmslight.domain.model.Movie
 
 data class MovieResponse(
     val page: Int,

@@ -10,13 +10,15 @@ import javax.inject.Inject
 class GetMovieDetails  @Inject constructor(
     private val filmsRepository: FilmsRepository
 ) {
-    operator fun invoke(id: Int, key: String, lang: String) = flow {
+    operator fun invoke(id: Int, lang: String) = flow {
         try {
-            val dayForecast = filmsRepository.getMovieDetails(
-                id = id, key = key, lang = lang
+            val movieDetails = filmsRepository.getMovieDetails(
+                id = id, lang = lang
             )
-            emit(AppState.Success(data = dayForecast))
+            emit(AppState.Success(data = movieDetails))
         } catch (e: Exception) {
+            println("uuuuuuuuuuuuuuuuu")
+            println(e.message)
             Timber.e(e)
             emit(AppState.Error(error = ErrorState.NO_FILMS_LOADED))
         }

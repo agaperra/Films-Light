@@ -1,6 +1,9 @@
-package com.agaperra.filmslight.domain.model
+package com.agaperra.filmslight.data.dto.movies
 
-data class MovieFull(
+import com.agaperra.filmslight.domain.model.Genre
+import com.agaperra.filmslight.domain.model.ProductionCountries
+
+data class MovieDetailsResponce(
     val id: Int,
     val original_title: String,
     val overview: String?,
@@ -9,7 +12,7 @@ data class MovieFull(
     val title: String,
     val vote_average: Double,
     val vote_count: Int,
-    val genres: List<String>,
+    val genres: List<Genre>,
     val production_countries: ArrayList<ProductionCountries>,
     val budget: Int,
     val revenue: Int,

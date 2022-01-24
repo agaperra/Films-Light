@@ -13,7 +13,6 @@ class SearchMovie @Inject constructor(
 ) {
 
     operator fun invoke(
-        key: String,
         lang: String,
         query: String,
         page: Int
@@ -21,7 +20,7 @@ class SearchMovie @Inject constructor(
         emit(AppState.Loading())
         try {
             val response =
-                filmsRepository.searchMovie(key, lang, query, page)
+                filmsRepository.searchMovie( lang, query, page)
             emit(AppState.Success(data = response))
         } catch (exception: HttpException) {
             if (exception.code() != 400)

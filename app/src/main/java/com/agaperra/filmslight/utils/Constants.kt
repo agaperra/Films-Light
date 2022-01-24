@@ -8,4 +8,6 @@ object Constants {
 
     const val backPress: Long = 0
     const val exitPress: Int = 2000
+
+    var searchData: String = ""
 }

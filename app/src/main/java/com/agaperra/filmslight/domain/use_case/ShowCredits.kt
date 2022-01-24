@@ -12,12 +12,12 @@ class ShowCredits @Inject constructor(
     private val filmsRepository: FilmsRepository
 ) {
     operator fun invoke(
-        id: Int, key: String, lang: String
+        id: Int, lang: String
     ) = flow {
         emit(AppState.Loading())
         try {
             val response =
-                filmsRepository.showCredits(id, key, lang)
+                filmsRepository.showCredits(id, lang)
             emit(AppState.Success(data = response))
         } catch (exception: HttpException) {
             if (exception.code() != 400)
